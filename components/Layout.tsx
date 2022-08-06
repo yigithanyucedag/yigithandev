@@ -8,10 +8,12 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <Navbar />
         <main className="mt-10">{children}</main>
         <footer className="mt-40 mb-20">
-          <span className="block text-center opacity-50 font-light">
+          <span className="block text-center opacity-70 font-light">
             Bu web sitesinin kaynak kodlarına{" "}
             <a
-              href="#"
+              href="https://github.com/yigithanyucedag/yigithandev"
+              target="_blank"
+              rel="noreferrer noopener"
               className="hover:text-blue-600 hover:underline transition-colors font-medium"
             >
               Github üzerinden
