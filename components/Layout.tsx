@@ -14,7 +14,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               href="https://github.com/yigithanyucedag/yigithandev"
               target="_blank"
               rel="noreferrer noopener"
-              className="hover:text-blue-600 hover:underline transition-colors font-medium"
+              className="hover:text-blue-600 transition-colors font-medium"
             >
               Github üzerinden
             </a>{" "}
