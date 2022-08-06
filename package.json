@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@anatoliygatt/use-prefers-color-scheme": "^1.0.3",
     "@remark-embedder/core": "^3.0.1",
     "classnames": "^2.3.1",
     "contentlayer": "^0.2.7",
