@@ -47,7 +47,7 @@ export default function Navbar() {
                   <span
                     className={cx(
                       "z-10 transition-opacity duration-200 ease-in-out",
-                      isActive ? "opacity-100 font-medium" : "opacity-70"
+                      isActive ? "opacity-100 font-medium" : "opacity-80"
                     )}
                   >
                     {title}
