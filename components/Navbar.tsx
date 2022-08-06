@@ -3,12 +3,11 @@ import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import cx from "classnames";
-import { FaHamburger } from "react-icons/fa";
 
 const ROUTES = {
   "/": "Anasayfa",
-  "/projects": "Projeler",
   "/blog": "Blog",
+  "/projects": "Projeler",
   "/tools": "Ekipmanlar",
 };
 
