@@ -1,0 +1,54 @@
+---
+date: "2022-08-06"
+tags: ["React Native", "Flashlist"]
+title: "Kütüphane Önerisi: ⚡️ Flashlist"
+subtitle: "React Native'de listeleme artık sorun değil!"
+tweetUrl: https://twitter.com/ademilter/status/1549894593445076992
+---
+
+Bildiğiniz gibi React Native'de hali hazırda iki tane listeleme bileşeni var: [FlatList](https://reactnative.dev/docs/flatlist) ve [SectionList](https://reactnative.dev/docs/sectionlist). SectionList bileşeni de aslında FlatList bileşenini kullanıyor o yüzden bu yazımda FlatList ile karşılaştırma göreceksiniz.
+
+FlatList kullanarak oluşturduğumuz uzun bir listede listeyi kaydırdıkça FPS kaybı, anlık takılmalar ve anlık gözüken boş liste problemleriyle karşılaşıyoruz.
+
+Bu yazımda size bu problemleri kökten çözen, FlatList'e kıyasla çok daha iyi performans sağlayan bir liste bileşeninden bahsedeceğim.
+
+# FlashList ([github.com/shopify/flash-list](https://github.com/shopify/flash-list))
+
+FlashList kullanarak, uzun listelerde daha fazla performans sağlarken aynı zamanda kaydırma esnasında ortaya çıkan takılmalardan ve anlık olarak gözüken boş liste görüntüsünden kurtuluyoruz.
+
+### Kullanımı
+
+Eğer daha önce FlatList kullandıysanız FlashList kullanmayı da biliyorsunuz demektir çünkü kullanımı neredeyse tamamen aynı. [Buradan](https://shopify.github.io/flash-list/docs/usage) resmi dökümana ulaşabilirsiniz.
+
+```jsx {19} showLineNumbers
+import React from "react";
+import { View, Text, StatusBar } from "react-native";
+import { FlashList } from "@shopify/flash-list";
+
+const DATA = [
+  {
+    title: "First Item",
+  },
+  {
+    title: "Second Item",
+  },
+];
+
+const MyList = () => {
+  return (
+    <FlashList
+      data={DATA}
+      renderItem={({ item }) => <Text>{item.title}</Text>}
+      estimatedItemSize={200}
+    />
+  );
+};
+```
+
+> Not: **estimatedItemSize** niteliği tek bir liste elemanının tahmini yükseliğidir. Eğer liste elemanları farklı yüksekliklere sahiplerse hepsinin ortalaması bir değer verebilirsiniz. **Bu nitelik optimal performans sağlamak için gerekli**.
+
+---
+
+### Performans Karşılaştırması (FlatList vs FlashList)
+
+https://twitter.com/almouro/status/1544669919479996416
