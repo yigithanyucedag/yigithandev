@@ -28,11 +28,11 @@ export default function Home() {
   return (
     <>
       <section>
-        <h1 className="text-3xl md:text-4xl font-semibold pt-5 text-center sm:text-start">
+        <h1 className="text-3xl md:text-4xl font-semibold text-center sm:text-start">
           <Emoji label="El sallama" symbol="👋" className="mr-3" />
           Merhaba, ben Yiğithan
         </h1>
-        <div className="mt-6 space-y-5">
+        <div className="mt-6 space-y-4">
           <p className="leading-8 text-center sm:text-start text-xl font-light opacity-90">
             İstanbul&apos;da yaşayan bir yazılım mühendisliği öğrencisiyim.
             Mobil ve web uygulamalar geliştiriyorum ve tasarlıyorum.
@@ -91,7 +91,7 @@ export default function Home() {
         </a>
       </section>
       <section>
-        <h2 className="text-3xl font-medium">Kullandığım Teknolojiler</h2>
+        <h2 className="text-3xl font-semibold">Kullandığım Teknolojiler</h2>
         <div className="table-tech-stack">
           <div className="stack">
             <SiTypescript className="stack-icon text-blue-600" />
