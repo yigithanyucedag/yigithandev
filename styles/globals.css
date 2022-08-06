@@ -15,6 +15,14 @@
     @apply flex items-center space-x-2 justify-center md:justify-start;
   }
 
+  .table-tech-stack .stack-label {
+    @apply text-xl opacity-90;
+  }
+
+  .table-tech-stack .stack-icon {
+    @apply w-6 h-6;
+  }
+
   .post-body > * {
     margin-bottom: 2rem;
     scroll-margin-top: 2rem;
