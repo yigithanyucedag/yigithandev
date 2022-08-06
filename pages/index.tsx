@@ -32,7 +32,7 @@ export default function Home() {
           <Emoji label="El sallama" symbol="👋" className="mr-3" />
           Merhaba, ben Yiğithan
         </h1>
-        <div className="mt-6 w-full md:max-w-xl space-y-5">
+        <div className="mt-6 space-y-5">
           <p className="leading-8 text-center sm:text-start text-xl font-light opacity-90">
             İstanbul&apos;da yaşayan bir yazılım mühendisliği öğrencisiyim.
             Mobil ve web uygulamalar geliştiriyorum ve tasarlıyorum.
@@ -94,64 +94,64 @@ export default function Home() {
         <h2 className="text-3xl font-medium">Kullandığım Teknolojiler</h2>
         <div className="table-tech-stack">
           <div className="stack">
-            <SiTypescript className="w-8 h-8 text-blue-600" />
-            <span className="text-xl opacity-80">Typescript</span>
+            <SiTypescript className="stack-icon text-blue-600" />
+            <span className="stack-label">Typescript</span>
           </div>
           <div className="stack">
-            <FaReact className="w-8 h-8 text-cyan-500" />
-            <span className="text-xl opacity-80">React</span>
+            <FaReact className="stack-icon text-cyan-500" />
+            <span className="stack-label">React</span>
           </div>
           <div className="stack">
-            <FaReact className="w-8 h-8 text-cyan-500" />
-            <span className="text-xl opacity-80">React Native</span>
+            <FaReact className="stack-icon text-cyan-500" />
+            <span className="stack-label">React Native</span>
           </div>
           <div className="stack">
-            <SiRedux className="w-8 h-8 text-purple-600" />
-            <span className="text-xl opacity-80">Redux</span>
+            <SiRedux className="stack-icon text-purple-600" />
+            <span className="stack-label">Redux</span>
           </div>
           <div className="stack">
-            <SiTailwindcss className="w-8 h-8 text-cyan-500" />
-            <span className="text-xl opacity-80">Tailwind CSS</span>
+            <SiTailwindcss className="stack-icon text-cyan-500" />
+            <span className="stack-label">Tailwind CSS</span>
           </div>
           <div className="stack">
-            <SiNextdotjs className="w-8 h-8 text-black" />
-            <span className="text-xl opacity-80">Next</span>
+            <SiNextdotjs className="stack-icon text-black" />
+            <span className="stack-label">Next</span>
           </div>
           <div className="stack">
-            <FaGitAlt className="w-8 h-8 text-orange-500" />
-            <span className="text-xl opacity-80">Git</span>
+            <FaGitAlt className="stack-icon text-orange-500" />
+            <span className="stack-label">Git</span>
           </div>
           <div className="stack">
-            <SiNodedotjs className="w-8 h-8 text-green-600" />
-            <span className="text-xl opacity-80">Node.js</span>
+            <SiNodedotjs className="stack-icon text-green-600" />
+            <span className="stack-label">Node.js</span>
           </div>
           <div className="stack">
-            <SiDjango className="w-8 h-8 text-green-600" />
-            <span className="text-xl opacity-80">Django</span>
+            <SiDjango className="stack-icon text-green-600" />
+            <span className="stack-label">Django</span>
           </div>
           <div className="stack">
-            <SiNginx className="w-8 h-8 text-green-700" />
-            <span className="text-xl opacity-80">Nginx</span>
+            <SiNginx className="stack-icon text-green-700" />
+            <span className="stack-label">Nginx</span>
           </div>
           <div className="stack">
-            <SiFirebase className="w-8 h-8 text-orange-500" />
-            <span className="text-xl opacity-80">Firebase</span>
+            <SiFirebase className="stack-icon text-orange-500" />
+            <span className="stack-label">Firebase</span>
           </div>
           <div className="stack">
-            <SiAmazonaws className="w-8 h-8 text-orange-400" />
-            <span className="text-xl opacity-80">AWS</span>
+            <SiAmazonaws className="stack-icon text-orange-400" />
+            <span className="stack-label">AWS</span>
           </div>
           <div className="stack">
-            <SiPostgresql className="w-8 h-8 text-blue-800" />
-            <span className="text-xl opacity-80">PostgreSQL</span>
+            <SiPostgresql className="stack-icon text-blue-800" />
+            <span className="stack-label">PostgreSQL</span>
           </div>
           <div className="stack">
-            <SiMysql className="w-8 h-8 text-blue-800" />
-            <span className="text-xl opacity-80">MySQL</span>
+            <SiMysql className="stack-icon text-blue-800" />
+            <span className="stack-label">MySQL</span>
           </div>
           <div className="stack">
-            <SiAdobexd className="w-8 h-8 text-fuchsia-800" />
-            <span className="text-xl opacity-80">Adobe XD</span>
+            <SiAdobexd className="stack-icon text-fuchsia-800" />
+            <span className="stack-label">Adobe XD</span>
           </div>
         </div>
       </section>
