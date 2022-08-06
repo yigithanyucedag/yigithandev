@@ -5,7 +5,7 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 import Head from "next/head";
 import React from "react";
 import cx from "classnames";
-import { TwitterTweetEmbed } from "react-twitter-embed";
+import TwitterEmbedWrapper from "components/TwitterEmbedWrapper";
 
 export async function getStaticPaths() {
   const paths = allPosts.map((post: Post) => ({ params: { slug: post.slug } }));
@@ -175,7 +175,7 @@ export default function PostPage({ post }: { post: Post }) {
                 return <h5 className="font-semibold" {...props} />;
               },
               twitterembed: (props: any) => {
-                return <TwitterTweetEmbed tweetId={props.id} />;
+                return <TwitterEmbedWrapper tweetId={props.id} />;
               },
             }}
           />
