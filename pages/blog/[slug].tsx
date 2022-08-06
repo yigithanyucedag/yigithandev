@@ -5,6 +5,7 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 import Head from "next/head";
 import React from "react";
 import cx from "classnames";
+import { TwitterTweetEmbed } from "react-twitter-embed";
 
 export async function getStaticPaths() {
   const paths = allPosts.map((post: Post) => ({ params: { slug: post.slug } }));
@@ -55,7 +56,7 @@ export default function PostPage({ post }: { post: Post }) {
               })}
             </time>
             <span>·</span>
-            <span>{post.readingTime.text}</span>
+            <span>{Math.round(post.readingTime.minutes)} dakikalık okuma</span>
           </div>
         </header>
 
@@ -69,7 +70,9 @@ export default function PostPage({ post }: { post: Post }) {
               a: (props: any) => {
                 return (
                   <a
-                    className="underline decoration-zinc-400 decoration-2 underline-offset-1 dark:decoration-zinc-500"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline decoration-zinc-400 decoration-2 underline-offset-1 dark:decoration-zinc-500 hover:text-blue-600 transition-colors"
                     {...props}
                   />
                 );
@@ -142,6 +145,11 @@ export default function PostPage({ post }: { post: Post }) {
                   </figure>
                 );
               },
+              h1: (props: any) => {
+                return (
+                  <h1 className="text-3xl font-bold leading-tight" {...props} />
+                );
+              },
               h2: (props: any) => {
                 return (
                   <h2 className="text-2xl font-bold leading-tight" {...props} />
@@ -165,6 +173,9 @@ export default function PostPage({ post }: { post: Post }) {
               },
               h5: (props: any) => {
                 return <h5 className="font-semibold" {...props} />;
+              },
+              twitterembed: (props: any) => {
+                return <TwitterTweetEmbed tweetId={props.id} />;
               },
             }}
           />
