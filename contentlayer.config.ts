@@ -47,7 +47,6 @@ export const Post = defineDocumentType(() => ({
       type: "string",
       required: true,
     },
-    tweetUrl: { type: "string", required: false },
   },
   computedFields: {
     slug: {
