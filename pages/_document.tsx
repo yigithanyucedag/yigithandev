@@ -48,20 +48,20 @@ export default class MyDocument extends NextDocument {
           <meta content="#ffffff" name="msapplication-TileColor" />
 
           {/* analytic */}
-          {/* {META.ga && (
+          {META.ga && (
             <>
               <script
                 async
-                src={`https://www.googletagmanager.com/gtag/js?id=${meta.ga}`}
+                src={`https://www.googletagmanager.com/gtag/js?id=${META.ga}`}
               />
               <script
                 type="text/javascript"
                 dangerouslySetInnerHTML={{
-                  __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '${meta.ga}');`,
+                  __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '${META.ga}');`,
                 }}
               />
             </>
-          )} */}
+          )}
         </Head>
 
         <body className="bg-white text-zinc-900 antialiased dark:bg-zinc-900 dark:text-zinc-100">
