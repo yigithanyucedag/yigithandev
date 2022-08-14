@@ -2,10 +2,11 @@ import { allPosts, Post } from "contentlayer/generated";
 import { format, parseISO } from "date-fns";
 import { tr } from "date-fns/locale";
 import { useMDXComponent } from "next-contentlayer/hooks";
-import Head from "next/head";
 import React from "react";
 import cx from "classnames";
 import TwitterEmbedWrapper from "components/TwitterEmbedWrapper";
+import { NextSeo } from "next-seo";
+import { META } from "constants/common";
 
 export async function getStaticPaths() {
   const paths = allPosts.map((post: Post) => ({ params: { slug: post.slug } }));
@@ -35,28 +36,39 @@ export async function getStaticProps({ params }: any) {
 }
 
 export default function PostPage({ post }: { post: Post }) {
-  const title = `${post.title} - Yiğithan Yücedağ`;
   const Component = useMDXComponent(post.body.code);
 
   return (
     <>
-      <Head>
-        <title>{title}</title>
-      </Head>
+      <NextSeo
+        title={post.title}
+        description={post.subtitle}
+        openGraph={{
+          url: `${META.url}${post.url}`,
+          title: post.title,
+          description: post.subtitle,
+          images: [
+            {
+              url: `${META.url}${post.cover}`,
+              alt: post.title,
+            },
+          ],
+        }}
+      />
       <article>
         <header>
-          <h1 className="text-3xl font-medium">{post.title}</h1>
-          <h2 className="mt-2 text-xl font-light opacity-80">
+          <h1 className="text-3xl font-medium text-center">{post.title}</h1>
+          <h2 className="mt-2 text-xl font-light opacity-80 text-center">
             {post.subtitle}
           </h2>
-          <div className="mt-5 flex items-center space-x-2 opacity-50">
+          <div className="mt-3 flex items-center justify-center space-x-2 opacity-50">
             <time dateTime={post.date}>
               {format(parseISO(post.date), "d LLLL yyyy", {
                 locale: tr,
               })}
             </time>
             <span>·</span>
-            <span>{Math.round(post.readingTime.minutes)} dakikalık okuma</span>
+            <span>{Math.ceil(post.readingTime.minutes)} dakikalık okuma</span>
           </div>
         </header>
 
@@ -72,7 +84,7 @@ export default function PostPage({ post }: { post: Post }) {
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="underline decoration-zinc-400 decoration-2 underline-offset-1 dark:decoration-zinc-500 hover:text-blue-600 transition-colors"
+                    className="underline decoration-zinc-400 decoration-2 underline-offset-1 dark:decoration-zinc-500 hover:text-blue-400 transition-colors"
                     {...props}
                   />
                 );
@@ -119,7 +131,7 @@ export default function PostPage({ post }: { post: Post }) {
                   </figure>
                 );
               },
-              Figure: ({ src, title, full = true, width }: any) => {
+              Figure: ({ src, title, width }: any) => {
                 const imageStyle: any = {};
 
                 if (width) {
@@ -128,20 +140,17 @@ export default function PostPage({ post }: { post: Post }) {
                 }
 
                 return (
-                  <figure
-                    className={cx(
-                      "text-center",
-                      full && "md:-mx-24 lg:-mx-40 xl:-mx-60"
-                    )}
-                  >
+                  <figure className={cx("text-center")}>
                     <img
                       className="inline-flex rounded-lg"
                       src={src}
                       style={imageStyle}
                     />
-                    <figcaption className="mx-16 mt-4 text-sm opacity-50">
-                      {title}
-                    </figcaption>
+                    {title && (
+                      <figcaption className="mx-16 mt-4 text-sm opacity-50">
+                        {title}
+                      </figcaption>
+                    )}
                   </figure>
                 );
               },

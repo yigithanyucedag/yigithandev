@@ -47,6 +47,10 @@ export const Post = defineDocumentType(() => ({
       type: "string",
       required: true,
     },
+    cover: {
+      type: "string",
+      required: true,
+    },
   },
   computedFields: {
     slug: {
@@ -55,7 +59,8 @@ export const Post = defineDocumentType(() => ({
     },
     url: {
       type: "string",
-      resolve: (post) => `/blog/${post.slug}`,
+      resolve: (post) =>
+        `/blog/${post._raw.sourceFileName.replace(/\.mdx$/, "")}`,
     },
     readingTime: {
       type: "json",

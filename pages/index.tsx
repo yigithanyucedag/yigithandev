@@ -43,7 +43,7 @@ export default function Home() {
             <a
               href="https://github.com/yigithanyucedag"
               target="_blank"
-              className="hover:text-blue-600 hover:underline transition-colors"
+              className="hover:text-blue-400 hover:underline transition-colors"
               rel="noreferrer"
             >
               GitHub profilim

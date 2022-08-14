@@ -12,7 +12,6 @@ export default class MyDocument extends NextDocument {
         <Head>
           {/* base */}
           <meta charSet="utf-8" />
-          <meta name="robots" content="follow, index" />
           <meta name="msapplication-TileColor" content="#2b5797" />
 
           {/* pwa */}

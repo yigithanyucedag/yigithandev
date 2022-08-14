@@ -1,8 +1,8 @@
-import Head from "next/head";
 import { allPosts, Post } from "contentlayer/generated";
 import { compareDesc, format, parseISO } from "date-fns";
 import Link from "next/link";
 import { tr } from "date-fns/locale";
+import { NextSeo } from "next-seo";
 
 export async function getStaticProps() {
   const posts = allPosts.sort((a, b) => {
@@ -14,9 +14,7 @@ export async function getStaticProps() {
 export default function Blog({ posts }: { posts: Post[] }) {
   return (
     <>
-      <Head>
-        <title>Blog - Yiğithan Yücedağ</title>
-      </Head>
+      <NextSeo title="Blog" />
       <section>
         <h2 className="text-3xl font-semibold">Son yazılarım</h2>
         <div className="space-y-6 mt-5">
@@ -36,7 +34,7 @@ export default function Blog({ posts }: { posts: Post[] }) {
                 )}
                 <h3 className="font-semibold text-xl mt-1">
                   <Link href={`/blog/${post.slug}`}>
-                    <a className="hover:text-blue-600 transition-colors">
+                    <a className="hover:text-blue-400 transition-colors">
                       {post.title}
                     </a>
                   </Link>
@@ -50,7 +48,7 @@ export default function Blog({ posts }: { posts: Post[] }) {
                   </time>
                   <span className="opacity-50">·</span>
                   <span>
-                    {Math.round(post.readingTime.minutes)} dakikalık okuma
+                    {Math.ceil(post.readingTime.minutes)} dakikalık okuma
                   </span>
                 </footer>
               </article>
