@@ -47,19 +47,16 @@ export default class MyDocument extends NextDocument {
           <meta content="#ffffff" name="theme-color" />
           <meta content="#ffffff" name="msapplication-TileColor" />
 
-          <Script
-            id="g-tag-manager"
-            strategy="worker"
+          <script
+            async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
           />
-          <Script id="g-parser" strategy="lazyOnload" type="text/javascript">
-            {`
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){ dataLayer.push(arguments); }
-                  gtag('js', new Date());
-                  gtag('config', '${GA_ID}');
-                `}
-          </Script>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={{
+              __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '${GA_ID}');`,
+            }}
+          />
         </Head>
 
         <body className="bg-white text-zinc-900 antialiased dark:bg-zinc-900 dark:text-zinc-100">
