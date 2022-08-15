@@ -3,9 +3,10 @@ export const META = {
   description: "Software Developer & UI/UX Designer",
   url: "https://yigithan.dev",
   twitterUsername: "@yigithanyucedağ",
-  ga: "G-ZEKK1CXL69",
   author: {
     email: "yigithanyucedag@gmail.com",
     name: "Yiğithan Yücedağ",
   },
 };
+
+export const GA_ID = "G-ZEKK1CXL69";
