@@ -48,10 +48,11 @@ export default class MyDocument extends NextDocument {
           <meta content="#ffffff" name="msapplication-TileColor" />
 
           <Script
+            id="g-tag-manager"
             strategy="worker"
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
           />
-          <Script strategy="lazyOnload" type="text/javascript">
+          <Script id="g-parser" strategy="lazyOnload" type="text/javascript">
             {`
                   window.dataLayer = window.dataLayer || [];
                   function gtag(){ dataLayer.push(arguments); }
