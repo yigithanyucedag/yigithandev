@@ -1,5 +1,6 @@
 import NextDocument, { Html, Head, Main, NextScript } from "next/document";
-import { META } from "constants/common";
+import { GA_ID } from "constants/common";
+import Script from "next/script";
 
 export default class MyDocument extends NextDocument {
   static getInitialProps(ctx: any) {
@@ -46,21 +47,18 @@ export default class MyDocument extends NextDocument {
           <meta content="#ffffff" name="theme-color" />
           <meta content="#ffffff" name="msapplication-TileColor" />
 
-          {/* analytic */}
-          {META.ga && (
-            <>
-              <script
-                async
-                src={`https://www.googletagmanager.com/gtag/js?id=${META.ga}`}
-              />
-              <script
-                type="text/javascript"
-                dangerouslySetInnerHTML={{
-                  __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '${META.ga}');`,
-                }}
-              />
-            </>
-          )}
+          <Script
+            strategy="worker"
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          />
+          <Script strategy="lazyOnload" type="text/javascript">
+            {`
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){ dataLayer.push(arguments); }
+                  gtag('js', new Date());
+                  gtag('config', '${GA_ID}');
+                `}
+          </Script>
         </Head>
 
         <body className="bg-white text-zinc-900 antialiased dark:bg-zinc-900 dark:text-zinc-100">
