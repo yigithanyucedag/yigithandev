@@ -71,9 +71,33 @@ export const Post = defineDocumentType(() => ({
   },
 }));
 
+export const Tool = defineDocumentType(() => ({
+  name: "Tool",
+  contentType: "mdx",
+  filePathPattern: `tools/*.mdx`,
+  fields: {
+    order: {
+      type: "number",
+      required: true,
+    },
+    brand: {
+      type: "string",
+      required: true,
+    },
+    title: {
+      type: "string",
+      required: true,
+    },
+    image: {
+      type: "string",
+      required: true,
+    },
+  },
+}));
+
 export default makeSource({
   contentDirPath: "data",
-  documentTypes: [Post],
+  documentTypes: [Post, Tool],
   mdx: {
     rehypePlugins: [rehypePrism],
     remarkPlugins: [[remarkEmbedder, { transformers: [TwitterTransformer] }]],
